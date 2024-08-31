@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio - CV Online</title>
+
+    <link rel="stylesheet" href="style.css"> <!--estilos a serem aplicados -->
+
+</head>
+
+<body>
+    <header> <!--o header é fixo -->
+        <div>
+            <h1 id="top">Maycow Carrara | CV e Portifólio</h1>
+            <nav>
+                <a href="#sobre" title="Conheça mais sobre mim">Sobre mim</a>
+                <a href="#formacao" title="Formação e Idiomas">Formação</a>
+                <a href="#portfolio" title="Veja alguns projetos meus">Portifólio</a>
+                <a href="#contato" title="Entre em contato por WhatsApp">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>Olá, eu sou Maycow Roberto Carrara. Desde o final do século XX, quando o disquete 💾 ainda era usado, sou
+            fascinado por tecnologia. Meu primeiro PC foi um 💽 Am486 DX4-100 33 MHz 100 MHz rodando o SO 🪟 Windows 98
+            SE! 😮
+
+            Desde então, trabalho com Tecnologia da Informação. Crio 🌐 páginas web desde 2006. Desenvolvo 🎚️ sistemas
+            desde 2008. Faço 🖌️ designs gráficos desde 2010. 🚀 Atualmente, sou especialista em 📊 Ciência de Dados e
+            🤖 Inteligência Artificial.
+
+            Outra área de interesse é a comunicação. Além da língua portuguesa, utilizo inglês, espanhol e Língua
+            Brasileira de Sinais (Libras). Trabalho como 🤟🏻🧏🏻‍♂️ Intérprete de Língua Brasileira de Sinais desde
+            2013.</p>
+    </section>
+
+    <section id="formacao">
+        <h2>Formação e Idiomas</h2>
+        <ul>
+            <li>Cursando Ciência de Dados - Uninter</li>
+            <li>Experiência anterior: Design Gráfico, Arte-final, Web Design, Desenvolvimento Front-End.</li>
+            <li>Idiomas:
+                <ul>
+                    <li>Português</li>
+                    <li>Inglês</li>
+                    <li>Espanhol</li>
+                    <li>Língua Brasileira de Sinais</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portifólio</h2>
+        <div class="projeto">
+            <img src="img/zvi.png" alt="ZVI Mobile">
+            <h3>ZVI Mobile</h3>
+            <p>Site para empresa de móveis planejados (WordPress)</p>
+            <a href="https://zvimobile.com.br/" target="_blank">Ver mais</a>
+        </div>
+        <div class="projeto">
+            <img src="/img/assmuf.png" alt="ASSMUF">
+            <h3>ASSMUF PR</h3>
+            <p>Site institucional para a Ass. Serv. Mun. de Fazenda Rio Grande - PR, com serviço de cadastro e informações sobre convênios.</p>
+            <a href="https://assmuf.com.br/" target="_blank">Ver mais</a>
+        </div> 
+        <div class="projeto">
+            <img src="/img/comgelo.png" alt="Comgelo Refrigeração">
+            <h3>Comgelo Refrigeração</h3>
+            <p>Site institucional para revendedora de equipamentos de refrigeração.</p>
+            <a href="https://comgelorefrigeracao.com.br/" target="_blank">Ver mais</a>
+        </div>
+    </section>
+
+    <section id="contato"> <!--este form usa js para gerar um link que enviar os dados para o meu whatsapp -->
+        <h2>Contato</h2>
+        <form id="whatsappForm">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required> <!--nome obrigatório -->
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required> <!--email obrigatório -->
+
+            <label for="descricao">Descrição:</label>  
+            <textarea id="descricao" name="descricao" required></textarea> <!--descrição obrigatório -->
+
+            <button type="submit">Enviar para WhatsApp</button>
+        </form>
+
+        <script>
+            const form = document.getElementById('whatsappForm');
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault(); // Impede o envio padrão do formulário
+
+                const nome = document.getElementById('nome').value;
+                const email = document.getElementById('email').value;
+
+                const descricao = document.getElementById('descricao').value;
+
+                // Construindo a mensagem para o WhatsApp
+                const mensagem = `Olá, meu nome é ${nome}. Meu email é ${email}. ${descricao}`;
+
+                // Codificando a mensagem para a URL
+                const mensagemCodificada = encodeURIComponent(mensagem);
+
+                // Criando o link para o WhatsApp
+                const linkWhatsApp = `https://api.whatsapp.com/send?phone=5555991190652&text=${mensagemCodificada}`;
+
+                // Redirecionando para o link do WhatsApp
+                window.open(linkWhatsApp, '_blank');
+            });
+        </script>
+    </section>
+
+    <footer> <!--o footer é fixo -->
+        <p>Maycow Carrara - Ciência de Dados Uninter 2024</p>
+    </footer>
+</body>
+
+</html>
