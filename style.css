@@ -101,6 +101,10 @@ footer {
     z-index: 1;
 }
 
+footer a {
+    color: rgb(40, 121, 201);
+}
+
 /* Resposividade */
 @media (max-width: 768px) {
     h1 {
